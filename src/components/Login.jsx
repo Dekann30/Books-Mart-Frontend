@@ -18,20 +18,30 @@ export default function Login() {
     }
 
     const StyledDiv = styled.div `
-        background: RGBA(96, 67, 55, 0.8);
+        background: RGBA(96, 67, 55, 0.7);
         border-radius: 40px;
-        padding: 40px;
-        margin-bottom: 50%;
+        padding: 35px;
+        margin-bottom: 300px;
         display: flex;
         flex-direction: column;
+        width: 300px; 
+        justify-content: center;
+        justify-items: center;
         
         form {
             display: flex;
             flex-direction: column;
             
         }
+
         .form-child {
             margin: 10px;
+        }
+
+        input {
+            width: 100%;
+            margin: 0px;
+            padding: 0px; 
         }
     `
 

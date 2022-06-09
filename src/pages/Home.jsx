@@ -17,7 +17,7 @@ export default function Home({ bookShelfBg }) {
                 background-color: RGBA(96, 67, 55, 0.5);
             }
             padding: 20px; 
-            margin-bottom: 50%;
+            margin-bottom: 300px;
             border-radius: 10%;
         }
     `
