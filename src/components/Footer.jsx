@@ -1,5 +1,13 @@
-export default function Footer() {
+import styled from 'styled-components'
+
+export default function Footer({ woodBg }) {
+    const StyledFooter = styled.footer`
+        background: black;
+        color: white;
+        background-image: url(${woodBg});
+    `
+
     return (
-        <h1>Footer Page</h1>
+        <StyledFooter><h1>Footer</h1></StyledFooter>
     )
 }
