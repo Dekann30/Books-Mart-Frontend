@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import styled from 'styled-components'
 
 export default function Login() {
     
@@ -16,23 +17,43 @@ export default function Login() {
         console.log(e.target.tagName)
     }
 
+    const StyledDiv = styled.div `
+        background: RGBA(96, 67, 55, 0.8);
+        border-radius: 40px;
+        padding: 40px;
+        margin-bottom: 50%;
+        display: flex;
+        flex-direction: column;
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            
+        }
+        .form-child {
+            margin: 10px;
+        }
+    `
+
     return (
-        <div className="login-container">
+        <StyledDiv className="login-container">
             <form onClick={handleClick}>
                 <input 
                     onChange={handleChange} 
                     name="username" 
                     placeholder="UserName"
+                    className='form-child'
                 />
                 <input 
                     onChange={handleChange} 
                     name="password" 
                     type="password" 
-                    placeholder="Password" 
+                    placeholder="Password"
+                    className='form-child' 
                 />
-                <button type="submit">Log In</button>
+                <button type="submit" className='form-child'>Log In</button>
             </form>
             <button>Create a New Account</button>
-        </div>
+        </StyledDiv>
     )
 }

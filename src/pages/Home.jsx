@@ -8,14 +8,26 @@ export default function Home({ bookShelfBg }) {
         height: 85vh;
         background-image: url(${bookShelfBg});
         color: white;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        h1 {
+            h2 {
+                margin: 0px;
+                background-color: RGBA(96, 67, 55, 0.5);
+            }
+            padding: 20px; 
+            margin-bottom: 50%;
+            border-radius: 10%;
+        }
     `
 
     return (
         <StyledDiv className="home-page">
-            <div className="home-text">
-                <div>Book Mart</div>
-                <div>Your Online solution to all books.</div>
-            </div>
+            <h1 className="home-text">
+                <h2>Book Mart</h2>
+                <h2>Your Online solution to all books.</h2>
+            </h1>
             <Login />
         </StyledDiv>
     )
