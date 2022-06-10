@@ -2,15 +2,18 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
+import woodBg from '../src/images/woodBg.jpg'
+import bookShelfBg from '../src/images/bookShelfBg.jpg'
+import './styles.sass'
 
 export default function App() {
   return (
     <div className="App">
-      <Header />
+      <Header woodBg={woodBg}  />
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Home bookShelfBg={bookShelfBg}/>} />
       </Routes>
-      <Footer />
+      <Footer woodBg={woodBg} />
     </div>
   )
 }
