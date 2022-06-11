@@ -35,9 +35,15 @@ export default function App() {
     getBooks()
   }
 
-  const updateBook = async ({showBook}) => {
-    // the rest of the function
-    const id = showBook._id
+  const updateBook = async (book, id) => {
+    await fetch(URL + id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "Application/json",
+      },
+      body: JSON.stringify(book)
+    })
+    getBooks()
   }
 
   const deleteBook = async (id) => {
@@ -56,7 +62,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Home bookShelfBg={bookShelfBg}/>} />
         <Route 
-          path='/books' 
+          path='/books/' 
           element={<Books 
               books={books} 
               getBooks={getBooks}
@@ -66,7 +72,7 @@ export default function App() {
             />} 
         />
         <Route 
-          path='/books/:id' 
+          path='/books/:id/' 
           element={
           <ShowBook 
             showBook={showBook} 
@@ -74,7 +80,8 @@ export default function App() {
             updateBook={updateBook}
           />} 
         />
-        <Route path='/new' element={<BookForm createBook={createBook} />}/>
+        <Route path='/books/new/' element={<BookForm createBook={createBook} />} />
+        <Route path='/books/:id/update/' element={<BookForm />} />
       </Routes>
       <Footer woodBg={woodBg} />
     </div>

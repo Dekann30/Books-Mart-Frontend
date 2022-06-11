@@ -9,8 +9,12 @@ export default function BookCard({ idx, author, title, description, genre, price
     navigate(`/books/${book._id}`)
   }
 
-  const handleDelete = (e) => {
+  const handleDelete = () => {
     deleteBook(book._id)
+  }
+
+  const handleUpdate = () => {
+    navigate(`/books/${book._id}/update`)
   }
 
   return <div >
@@ -21,7 +25,7 @@ export default function BookCard({ idx, author, title, description, genre, price
       {genre}
       {price}
       </div>
-    <button>update</button>
+    <button onClick={handleUpdate} >update</button>
     <button onClick={handleDelete} >delete</button>
   </div>
 }

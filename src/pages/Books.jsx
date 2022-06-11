@@ -1,8 +1,6 @@
 import BookCard from '../components/BookCard'
-import { useEffect } from 'react'
 
 export default function Books({ getBooks, books, setShowBook, deleteBook }) {
-  useEffect(() => { getBooks() }, [])
 
   return (
     <div>

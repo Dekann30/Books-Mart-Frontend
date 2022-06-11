@@ -37,49 +37,108 @@ export default function Form({ createBook }) {
 
     navigate('/books')
   }
+  
+  // check to see the path
+  const pathname = (window.location.href).toString().split('/')
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="title"
-        placeholder="title"
-        onChange={handleChange}
-        required={true}
-      />
+  // if the path ends with 'new' then return true false otherwise
+  const isNew = () => {
+    return !!((pathname[4] === 'new') ? true : false)
+  }
 
-      <input
-        type="text"
-        name="description"
-        placeholder="description"
-        onChange={handleChange}
-      />
+  const createForm = () => {
+    return (
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="title"
+          placeholder="title"
+          onChange={handleChange}
+          required={true}
+        />
+  
+        <input
+          type="text"
+          name="description"
+          placeholder="description"
+          onChange={handleChange}
+        />
+  
+        <input
+          type="text"
+          name="author"
+          placeholder="author"
+          onChange={handleChange}
+          required={true}
+        />
+  
+        <input
+          type="text"
+          name="genre"
+          placeholder="genre"
+          onChange={handleChange}
+          required={true}
+        />
+  
+        <input
+          type="number"
+          name="price"
+          placeholder="price"
+          onChange={handleChange}
+          required={true}
+          step={0.01}
+        />
+        <button type="submit">Add Book</button>
+      </form>
+    )
+  }
 
-      <input
-        type="text"
-        name="author"
-        placeholder="author"
-        onChange={handleChange}
-        required={true}
-      />
+  const updateForm = () => {
+    return (
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="title"
+          placeholder="title"
+          onChange={handleChange}
+          required={true}
+        />
+  
+        <input
+          type="text"
+          name="description"
+          placeholder="description"
+          onChange={handleChange}
+        />
+  
+        <input
+          type="text"
+          name="author"
+          placeholder="author"
+          onChange={handleChange}
+          required={true}
+        />
+  
+        <input
+          type="text"
+          name="genre"
+          placeholder="genre"
+          onChange={handleChange}
+          required={true}
+        />
+  
+        <input
+          type="number"
+          name="price"
+          placeholder="price"
+          onChange={handleChange}
+          required={true}
+          step={0.01}
+        />
+        <button type="submit">Update Book</button>
+      </form>
+    )
+  }
 
-      <input
-        type="text"
-        name="genre"
-        placeholder="genre"
-        onChange={handleChange}
-        required={true}
-      />
-
-      <input
-        type="number"
-        name="price"
-        placeholder="price"
-        onChange={handleChange}
-        required={true}
-        step={0.01}
-      />
-      <button type="submit">Add Book</button>
-    </form>
-  )
+  return isNew() ? createForm() : updateForm()
 }

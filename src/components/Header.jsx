@@ -36,7 +36,7 @@ export default function Header({ woodBg }) {
       <nav>
         <Link to="/" ><h2>HOME</h2></Link>
         <Link to="/books" ><h2>BOOKS</h2></Link>
-        <Link to="/new" ><h2>CREATE BOOK</h2></Link>
+        <Link to="/books/new" ><h2>CREATE BOOK</h2></Link>
       </nav>
     </StyledHeader>
   )
