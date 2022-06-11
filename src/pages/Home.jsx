@@ -1,7 +1,6 @@
 import Login from '../components/Login'
 import styled from 'styled-components'
 import { useState } from 'react'
-import Index from './Index'
 
 export default function Home({ bookShelfBg }) {
 
@@ -32,7 +31,6 @@ export default function Home({ bookShelfBg }) {
                 <h2>Your Online solution to all books.</h2>
             </h1>
             <Login />
-            <Index  />
         </StyledDiv>
     )
 }
