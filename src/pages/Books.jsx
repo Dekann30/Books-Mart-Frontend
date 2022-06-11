@@ -1,10 +1,12 @@
 import BookCard from '../components/BookCard'
 
-export default function Index() {
+export default function Index({ books }) {
 
   return (
     <div>
-      <BookCard />
+      {books.map((book, idx) => {
+        <BookCard key={book._id} idx={idx} />
+      })}
     </div>
   )
 }

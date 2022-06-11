@@ -19,7 +19,6 @@ export default function App() {
   const getBooks = async () => {
     const data = await fetch(URL).then(res => res.json())
     setBooks(data)
-    console.log(data)
   }
 
   // create
