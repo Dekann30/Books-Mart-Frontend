@@ -8,6 +8,13 @@ const StyledHeader = styled.header`
     }
     nav {
         display: flex;
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        a:hover {
+            color: #e8b569;
+        }
         h2 {
             margin: 20px;
         }
@@ -28,8 +35,8 @@ export default function Header({ woodBg }) {
             <h1>Book Mart</h1>
             <nav>
                 <Link to="/" ><h2>HOME</h2></Link>
-                <h2>FAVORITES</h2>
-                <h2>CART</h2>
+                <Link to="books" ><h2>BOOKS</h2></Link>
+                <Link to="/" ><h2>CART</h2></Link>
             </nav>
         </StyledHeader>
     )
