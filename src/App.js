@@ -42,13 +42,13 @@ export default function App() {
   }
 
   useEffect(() => { getBooks() }, [])
-  
+
   return (
     <div className="App">
       <Header woodBg={woodBg}  />
       <Routes>
         <Route path='/' element={<Home bookShelfBg={bookShelfBg}/>} />
-        <Route path='/books' element={<Books books={books} />} />
+        <Route path='/books' element={<Books books={books} getBooks={getBooks}/>} />
         <Route path='/new' element={<BookForm createBook={createBook} />}/>
       </Routes>
       <Footer woodBg={woodBg} />

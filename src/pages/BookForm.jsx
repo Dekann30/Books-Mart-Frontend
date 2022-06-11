@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export default function Form({ createBook }) {
   const [form, setForm] = useState({
@@ -16,6 +17,8 @@ export default function Form({ createBook }) {
     })
   }
 
+  let navigate = useNavigate()
+
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -31,6 +34,8 @@ export default function Form({ createBook }) {
       genre: '',
       price: '',
     })
+
+    navigate('/books')
   }
 
   return (
@@ -40,6 +45,7 @@ export default function Form({ createBook }) {
         name="title"
         placeholder="title"
         onChange={handleChange}
+        required={true}
       />
 
       <input
@@ -54,6 +60,7 @@ export default function Form({ createBook }) {
         name="author"
         placeholder="author"
         onChange={handleChange}
+        required={true}
       />
 
       <input
@@ -61,6 +68,7 @@ export default function Form({ createBook }) {
         name="genre"
         placeholder="genre"
         onChange={handleChange}
+        required={true}
       />
 
       <input
@@ -68,6 +76,8 @@ export default function Form({ createBook }) {
         name="price"
         placeholder="price"
         onChange={handleChange}
+        required={true}
+        step={0.01}
       />
       <button type="submit">Add Book</button>
     </form>
