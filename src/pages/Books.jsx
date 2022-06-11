@@ -1,12 +1,23 @@
 import BookCard from '../components/BookCard'
 
-export default function Index({ books }) {
+export default function Books({ getBooks, books, setShowBook, deleteBook }) {
 
   return (
     <div>
-      {books.map((book, idx) => {
-        <BookCard key={book._id} idx={idx} />
-      })}
+      {books.map((book) => 
+        <BookCard
+          setShowBook={setShowBook}
+          book={book}
+          key={book._id}
+          idx={book._id} 
+          author={book.author}
+          title={book.title}
+          description={book.description}
+          genre={book.genre}
+          price={book.price}
+          deleteBook={deleteBook}
+        />
+      )}
     </div>
   )
 }
