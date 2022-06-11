@@ -49,16 +49,21 @@ export default function Form({ createBook, showBook, updateBook }) {
   let navigate = useNavigate()
 
   const handleCreateSubmit = (e) => {
-    e.preventDefault()
-    createBook(form)
-    setForm({
-      title: '',
-      description: '',
-      author: '',
-      genre: '',
-      price: '',
-    })
-    navigate('/books')
+    if (form.price < 0) {
+      e.preventDefault()
+      alert("Price cannot be lower than 0!")
+    } else {
+      e.preventDefault()
+      createBook(form)
+      setForm({
+        title: '',
+        description: '',
+        author: '',
+        genre: '',
+        price: '',
+      })
+      navigate('/books')
+    }
   }
 
   const handleUpdateSubmit = (e) => {

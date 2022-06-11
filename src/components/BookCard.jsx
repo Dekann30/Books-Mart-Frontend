@@ -18,15 +18,39 @@ export default function BookCard({ idx, author, title, description, genre, price
     navigate(`/books/${book._id}/update`)
   }
 
-  return <div >
-    <div onClick={handleClick}>
+  // check to see the path
+  const pathname = (window.location.href).toString().split('/')
+  console.log(pathname)
+  // if the path ends with 'new' then return true false otherwise
+  const isBook = () => {
+    return !!((pathname.length === 4) ? true : false)
+  }
+  console.log(pathname.length)
+  console.log(isBook())
+
+  const showPage = () => {
+    return <div >
+      <div onClick={handleClick}>
+        {author}
+        {title}
+        {description}
+        {genre}
+        {price}
+        </div>
+      <button onClick={handleUpdate} >update</button>
+      <button onClick={handleDelete} >delete</button>
+    </div>
+  }
+
+  const otherPage = () => {
+    return <div onClick={handleClick}>
       {author}
       {title}
       {description}
       {genre}
       {price}
-      </div>
-    <button onClick={handleUpdate} >update</button>
-    <button onClick={handleDelete} >delete</button>
-  </div>
+    </div>
+  }
+
+  return isBook() ? showPage(): otherPage()
 }
