@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import { useParams } from "react-router-dom"
 
-export default function Form({ createBook }) {
+export default function Form({ createBook, showBook, updateBook }) {
   const [form, setForm] = useState({
     title: '',
     description: '',
@@ -10,6 +11,17 @@ export default function Form({ createBook }) {
     price: '',
   })
 
+  const [updateFormState, setUpdateFormState] = useState({
+    title: showBook.title,
+    description: showBook.description,
+    author: showBook.author,
+    genre: showBook.genre,
+    price: showBook.price,
+  })
+
+  const {id} = useParams()
+  console.log(id)
+
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -17,15 +29,27 @@ export default function Form({ createBook }) {
     })
   }
 
+  const handleUpdateChange = (e) => {
+    setUpdateFormState({
+      ...updateFormState,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  // useEffect(() => {
+  //   setUpdateFormState({
+  //     title: showBook.title,
+  //     description: showBook.description,
+  //     author: showBook.author,
+  //     genre: showBook.genre,
+  //     price: showBook.price,
+  //   })
+  // }, [])
+
   let navigate = useNavigate()
 
-  const handleSubmit = (e) => {
+  const handleCreateSubmit = (e) => {
     e.preventDefault()
-
-    // if (form is not filled out) {
-    //   alert(user: hey you need to fill in these things.)
-    // }
-
     createBook(form)
     setForm({
       title: '',
@@ -34,10 +58,15 @@ export default function Form({ createBook }) {
       genre: '',
       price: '',
     })
-
     navigate('/books')
   }
-  
+
+  const handleUpdateSubmit = (e) => {
+    e.preventDefault()
+    updateBook(updateFormState, id)
+    navigate('/books')
+  }
+
   // check to see the path
   const pathname = (window.location.href).toString().split('/')
 
@@ -48,7 +77,7 @@ export default function Form({ createBook }) {
 
   const createForm = () => {
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleCreateSubmit}>
         <input
           type="text"
           name="title"
@@ -95,12 +124,12 @@ export default function Form({ createBook }) {
 
   const updateForm = () => {
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleUpdateSubmit}>
         <input
           type="text"
           name="title"
           placeholder="title"
-          onChange={handleChange}
+          onChange={handleUpdateChange}
           required={true}
         />
   
@@ -108,14 +137,14 @@ export default function Form({ createBook }) {
           type="text"
           name="description"
           placeholder="description"
-          onChange={handleChange}
+          onChange={handleUpdateChange}
         />
   
         <input
           type="text"
           name="author"
           placeholder="author"
-          onChange={handleChange}
+          onChange={handleUpdateChange}
           required={true}
         />
   
@@ -123,7 +152,7 @@ export default function Form({ createBook }) {
           type="text"
           name="genre"
           placeholder="genre"
-          onChange={handleChange}
+          onChange={handleUpdateChange}
           required={true}
         />
   
@@ -131,7 +160,7 @@ export default function Form({ createBook }) {
           type="number"
           name="price"
           placeholder="price"
-          onChange={handleChange}
+          onChange={handleUpdateChange}
           required={true}
           step={0.01}
         />

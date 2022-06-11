@@ -13,7 +13,7 @@ import './styles.sass'
 export default function App() {
 
   const [books, setBooks] = useState(null)
-  const [showBook, setShowBook] = useState(null)
+  const [showBook, setShowBook] = useState({})
 
   const URL = "https://rj-books-mart-backend.herokuapp.com/books/"
 
@@ -80,8 +80,20 @@ export default function App() {
             updateBook={updateBook}
           />} 
         />
-        <Route path='/books/new/' element={<BookForm createBook={createBook} />} />
-        <Route path='/books/:id/update/' element={<BookForm />} />
+        <Route 
+          path='/books/new/' 
+          element={<BookForm 
+            createBook={createBook}
+            showBook={showBook}
+          />} 
+        />
+        <Route 
+          path='/books/:id/update/' 
+          element={<BookForm 
+            showBook={showBook}
+            updateBook={updateBook}
+          />} 
+        />
       </Routes>
       <Footer woodBg={woodBg} />
     </div>

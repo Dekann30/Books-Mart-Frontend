@@ -14,6 +14,7 @@ export default function BookCard({ idx, author, title, description, genre, price
   }
 
   const handleUpdate = () => {
+    setShowBook(book)
     navigate(`/books/${book._id}/update`)
   }
 
