@@ -33,14 +33,14 @@ export default function Login() {
     
     const [login, setLogin] = useState({username: "", password: "",})
 
-    function handleChange(e) {
+    const handleChange = (e) => {
         setLogin({
             ...login,
             [e.target.name]: e.target.value
         })
     }
 
-    function handleClick(e) {
+    const handleClick = (e) => {
         e.preventDefault()
         console.log(e.target.tagName)
     }
