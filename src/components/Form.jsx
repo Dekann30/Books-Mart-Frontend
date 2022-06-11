@@ -18,6 +18,11 @@ export default function Form({ createBook }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    // if (form is not filled out) {
+    //   alert(user: hey you need to fill in these things.)
+    // }
+    
     createBook(form)
     setForm({
       title: '',
