@@ -1,9 +1,10 @@
 import Header from './components/Header'
 import Footer from './components/Footer'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Home from './pages/Home'
 import Books from './pages/Books'
+import ShowBook from './pages/ShowBook'
 import BookForm from './pages/BookForm'
 import woodBg from '../src/images/woodBg.jpg'
 import bookShelfBg from '../src/images/bookShelfBg.jpg'
@@ -12,8 +13,9 @@ import './styles.sass'
 export default function App() {
 
   const [books, setBooks] = useState(null)
+  const [showBook, setShowBook] = useState(null)
 
-  const URL = "https://rj-books-mart-backend.herokuapp.com/books"
+  const URL = "https://rj-books-mart-backend.herokuapp.com/books/"
 
   // index
   const getBooks = async () => {
@@ -33,12 +35,17 @@ export default function App() {
     getBooks()
   }
 
-  const updateBook = async (bookId) => {
+  const updateBook = async ({showBook}) => {
     // the rest of the function
+    const id = showBook._id
   }
 
-  const deleteBook = async (bookId) => {
+  const deleteBook = async (id) => {
     // the rest of the function
+    await fetch(URL + id, {
+      method: "DELETE"
+    })
+    getBooks()
   }
 
   useEffect(() => { getBooks() }, [])
@@ -48,7 +55,25 @@ export default function App() {
       <Header woodBg={woodBg}  />
       <Routes>
         <Route path='/' element={<Home bookShelfBg={bookShelfBg}/>} />
-        <Route path='/books' element={<Books books={books} getBooks={getBooks}/>} />
+        <Route 
+          path='/books' 
+          element={<Books 
+              books={books} 
+              getBooks={getBooks}
+              setShowBook={setShowBook}
+              deleteBook={deleteBook}
+              updateBook={updateBook}
+            />} 
+        />
+        <Route 
+          path='/books/:id' 
+          element={
+          <ShowBook 
+            showBook={showBook} 
+            deleteBook={deleteBook}
+            updateBook={updateBook}
+          />} 
+        />
         <Route path='/new' element={<BookForm createBook={createBook} />}/>
       </Routes>
       <Footer woodBg={woodBg} />
