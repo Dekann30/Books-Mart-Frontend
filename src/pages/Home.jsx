@@ -1,6 +1,5 @@
 import Login from '../components/Login'
 import styled from 'styled-components'
-import { useState } from 'react'
 
 const StyledDiv = styled.div`
     background: #664e44;
