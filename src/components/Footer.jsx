@@ -4,9 +4,12 @@ const StyledFooter = styled.footer`
   background: black;
   color: white;
   background-image: url(${props => props.bg});
-  min-height: 100px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
   width: 100%;
-  margin-top: auto;
+  color: white;
+  text-align: center;
 `
 
 const StyledImage = styled.img`
