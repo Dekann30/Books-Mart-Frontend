@@ -1,4 +1,39 @@
 import { useNavigate } from 'react-router-dom'
+import styled from 'styled-components'
+
+const ShowDiv = styled.div `
+  background-color: #E0D8B0;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+    .item-detail {
+      margin: 25px;
+      padding: 5px;
+      text-align: center;
+      background-color: #FCFFE7;
+      border-radius: 15%;
+      align-items: center;
+      justify-content: center;
+    }
+    p {
+      font-size: 20px;
+      color: #DEA057;
+    }
+    #title {
+      color: #CE9461;
+      font-size: 6rem;
+    }
+    h1 {
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1.25;
+    word-wrap: break-word;
+    }
+`
+
 
 export default function BookCard({ idx, author, title, description, genre, price, setShowBook, book, deleteBook}) {
 
@@ -28,7 +63,7 @@ export default function BookCard({ idx, author, title, description, genre, price
   console.log(pathname.length)
   console.log(isBook())
 
-  const showPage = () => {
+  const allBooks = () => {
     return <div >
       <div onClick={handleClick}>
         {author}
@@ -42,15 +77,15 @@ export default function BookCard({ idx, author, title, description, genre, price
     </div>
   }
 
-  const otherPage = () => {
-    return <div onClick={handleClick}>
-      {author}
-      {title}
-      {description}
-      {genre}
-      {price}
-    </div>
+  const showPage = () => {
+    return <ShowDiv onClick={handleClick}>
+      <h1 className="item-detail" id="title">{title}</h1>
+      <div className="item-detail" id="author"><p>{author}</p></div>
+      <div className="item-detail" id="description"><p>{description}</p></div>
+      <div className="item-detail" id="genre"><p>{genre}</p></div>
+      <div className="item-detail" id="price"><p>${price}</p></div>
+    </ShowDiv>
   }
 
-  return isBook() ? showPage(): otherPage()
+  return isBook() ? allBooks(): showPage()
 }
