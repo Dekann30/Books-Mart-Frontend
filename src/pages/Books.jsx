@@ -1,9 +1,17 @@
 import BookCard from '../components/BookCard'
+import styled from 'styled-components'
 
-export default function Books({ getBooks, books, setShowBook, deleteBook }) {
+const StyledDiv = styled.div`
+  background-image: url(${props => props.bg});
+  background-position: center;
+  height: 85vh;
+  border: 5px solid burlywood;
+`
+
+export default function Books({ getBooks, books, setShowBook, deleteBook, booksBg}) {
 
   return (
-    <div>
+    <StyledDiv bg={booksBg}>
       {books.map((book) => 
         <BookCard
           setShowBook={setShowBook}
@@ -18,6 +26,6 @@ export default function Books({ getBooks, books, setShowBook, deleteBook }) {
           deleteBook={deleteBook}
         />
       )}
-    </div>
+    </StyledDiv>
   )
 }
