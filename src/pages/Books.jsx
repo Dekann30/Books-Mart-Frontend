@@ -4,8 +4,12 @@ import styled from 'styled-components'
 const StyledDiv = styled.div`
   background-image: url(${props => props.bg});
   background-position: center;
-  height: 85vh;
   border: 5px solid burlywood;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  min-height: 100%;
 `
 
 export default function Books({ getBooks, books, setShowBook, deleteBook, booksBg}) {

@@ -1,4 +1,32 @@
 import { useNavigate } from 'react-router-dom'
+import styled from 'styled-components'
+
+const StyledCard = styled.div`
+  background: RGBA(30, 16, 4, 0.5);
+  border-radius: 20%;
+  margin: 10px;
+  padding: 25px;
+  width: 200px;
+  height: 150px;
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  flex-direction: column;
+  flex-wrap: wrap;
+  color: #e2c9aa;
+  div {
+    h1, h2 {
+      margin: 0 auto;
+    }
+  }
+`
+
+const ButtonContainer = styled.div`
+  display: flex;
+  button {
+    width: 50%;
+  }
+`
 
 export default function BookCard({ idx, author, title, description, genre, price, setShowBook, book, deleteBook}) {
 
@@ -29,17 +57,18 @@ export default function BookCard({ idx, author, title, description, genre, price
   console.log(isBook())
 
   const showPage = () => {
-    return <div >
+    return <StyledCard >
       <div onClick={handleClick}>
-        {author}
-        {title}
-        {description}
-        {genre}
-        {price}
-        </div>
-      <button onClick={handleUpdate} >update</button>
-      <button onClick={handleDelete} >delete</button>
-    </div>
+        <h1>{title}</h1>
+        <h2>{author}</h2>
+        <h2>{genre}</h2>
+        <h2>{price}</h2>
+      </div>
+      <ButtonContainer>
+        <button onClick={handleUpdate} >update</button>
+        <button onClick={handleDelete} >delete</button>
+      </ButtonContainer>
+    </StyledCard>
   }
 
   const otherPage = () => {
