@@ -1,10 +1,16 @@
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
-const ShowDiv = styled.div `
-  background-color: #E0D8B0;
-  color: white;
+const StyledCard = styled.div`
+  background: RGBA(30, 16, 4, 0.5);
+  border-radius: 20%;
+  margin: 10px;
+  padding: 25px;
+  width: 200px;
+  height: 150px;
   display: flex;
+  text-align: center;
+  justify-content: space-around;
   flex-direction: column;
   width: 100%;
   height: 100vh;
@@ -61,8 +67,15 @@ const ShowDiv = styled.div `
     #price {
 
     }
+  }
 `
 
+const ButtonContainer = styled.div`
+  display: flex;
+  button {
+    width: 50%;
+  }
+`
 
 export default function BookCard({ idx, author, title, description, genre, price, setShowBook, book, deleteBook}) {
 
@@ -92,20 +105,32 @@ export default function BookCard({ idx, author, title, description, genre, price
   console.log(pathname.length)
   console.log(isBook())
 
-  const allBooks = () => {
-    return <div >
+  const showPage = () => {
+    return <StyledCard >
       <div onClick={handleClick}>
-        {author}
-        {title}
-        {description}
-        {genre}
-        {price}
-        </div>
-      <button onClick={handleUpdate} >update</button>
-      <button onClick={handleDelete} >delete</button>
+        <h1>{title}</h1>
+        <h2>{author}</h2>
+        <h2>{genre}</h2>
+        <h2>{price}</h2>
+      </div>
+      <ButtonContainer>
+        <button onClick={handleUpdate} >update</button>
+        <button onClick={handleDelete} >delete</button>
+      </ButtonContainer>
+    </StyledCard>
+  }
+
+  const otherPage = () => {
+    return <div onClick={handleClick}>
+      {author}
+      {title}
+      {description}
+      {genre}
+      {price}
     </div>
   }
 
+<<<<<<< HEAD
   const showPage = () => {
     return <ShowDiv onClick={handleClick}>
       <h1 className="item-detail" id="title">{title}</h1>
@@ -119,4 +144,7 @@ export default function BookCard({ idx, author, title, description, genre, price
   }
 
   return isBook() ? allBooks(): showPage()
+=======
+  return isBook() ? showPage(): otherPage()
+>>>>>>> dev
 }
