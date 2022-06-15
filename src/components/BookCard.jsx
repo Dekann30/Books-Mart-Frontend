@@ -130,21 +130,5 @@ export default function BookCard({ idx, author, title, description, genre, price
     </div>
   }
 
-<<<<<<< HEAD
-  const showPage = () => {
-    return <ShowDiv onClick={handleClick}>
-      <h1 className="item-detail" id="title">{title}</h1>
-      <div className="details-container">
-      <div className="item-detail" id="author"><p>{author}</p></div>
-      <div className="item-detail" id="genre"><p>{genre}</p></div>
-      <div className="item-detail" id="description"><p>{description}</p></div>
-      <div className="item-detail" id="price"><p>${price}</p></div>
-      </div>
-    </ShowDiv>
-  }
-
-  return isBook() ? allBooks(): showPage()
-=======
   return isBook() ? showPage(): otherPage()
->>>>>>> dev
 }
