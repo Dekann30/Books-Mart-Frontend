@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const StyledDiv = styled.div`
   background: #664e44;
-  height: 85vh;
+  height: 100%;
   background-image: url(${props => props.bg});
   color: white;
   display: flex;
