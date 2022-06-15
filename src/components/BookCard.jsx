@@ -105,7 +105,7 @@ export default function BookCard({ idx, author, title, description, genre, price
   console.log(pathname.length)
   console.log(isBook())
 
-  const showPage = () => {
+  const otherPage = () => {
     return <StyledCard >
       <div onClick={handleClick}>
         <h1>{title}</h1>
@@ -120,17 +120,6 @@ export default function BookCard({ idx, author, title, description, genre, price
     </StyledCard>
   }
 
-  const otherPage = () => {
-    return <div onClick={handleClick}>
-      {author}
-      {title}
-      {description}
-      {genre}
-      {price}
-    </div>
-  }
-
-<<<<<<< HEAD
   const showPage = () => {
     return <ShowDiv onClick={handleClick}>
       <h1 className="item-detail" id="title">{title}</h1>
@@ -143,8 +132,5 @@ export default function BookCard({ idx, author, title, description, genre, price
     </ShowDiv>
   }
 
-  return isBook() ? allBooks(): showPage()
-=======
-  return isBook() ? showPage(): otherPage()
->>>>>>> dev
+  return isBook() ? otherPage(): showPage()
 }
