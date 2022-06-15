@@ -1,16 +1,10 @@
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
-const StyledCard = styled.div`
-  background: RGBA(30, 16, 4, 0.5);
-  border-radius: 20%;
-  margin: 10px;
-  padding: 25px;
-  width: 200px;
-  height: 150px;
+const ShowDiv = styled.div `
+  background-color: #E0D8B0;
+  color: white;
   display: flex;
-  text-align: center;
-  justify-content: space-around;
   flex-direction: column;
   width: 100%;
   height: 100vh;
@@ -67,15 +61,8 @@ const StyledCard = styled.div`
     #price {
 
     }
-  }
 `
 
-const ButtonContainer = styled.div`
-  display: flex;
-  button {
-    width: 50%;
-  }
-`
 
 export default function BookCard({ idx, author, title, description, genre, price, setShowBook, book, deleteBook}) {
 
@@ -105,19 +92,18 @@ export default function BookCard({ idx, author, title, description, genre, price
   console.log(pathname.length)
   console.log(isBook())
 
-  const otherPage = () => {
-    return <StyledCard >
+  const allBooks = () => {
+    return <div >
       <div onClick={handleClick}>
-        <h1>{title}</h1>
-        <h2>{author}</h2>
-        <h2>{genre}</h2>
-        <h2>{price}</h2>
-      </div>
-      <ButtonContainer>
-        <button onClick={handleUpdate} >update</button>
-        <button onClick={handleDelete} >delete</button>
-      </ButtonContainer>
-    </StyledCard>
+        {author}
+        {title}
+        {description}
+        {genre}
+        {price}
+        </div>
+      <button onClick={handleUpdate} >update</button>
+      <button onClick={handleDelete} >delete</button>
+    </div>
   }
 
   const showPage = () => {
@@ -132,5 +118,5 @@ export default function BookCard({ idx, author, title, description, genre, price
     </ShowDiv>
   }
 
-  return isBook() ? otherPage(): showPage()
+  return isBook() ? allBooks(): showPage()
 }
