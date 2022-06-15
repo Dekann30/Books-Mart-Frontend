@@ -4,12 +4,11 @@ const StyledFooter = styled.footer`
   background: black;
   color: white;
   background-image: url(${props => props.bg});
+  text-align: center;
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  color: white;
-  text-align: center;
 `
 
 const StyledImage = styled.img`
@@ -28,6 +27,19 @@ const StyledAnchor = styled.a`
 
 export default function Footer({ woodBg }) {
   return (
-    <StyledFooter bg={woodBg} ><h1>Footer</h1></StyledFooter>
+    <StyledFooter bg={woodBg} >
+      <div>
+        <h4>
+          copyright &copy; 2022 |
+          <StyledAnchor href='https://github.com/SunghunP'>Joe</StyledAnchor> |
+          <StyledAnchor href='https://github.com/Dekann30'>Deanna</StyledAnchor> |
+          <StyledAnchor href='https://github.com/dominikconway'>Alex</StyledAnchor> |
+          <StyledAnchor href='https://github.com/Banditolabs'>Josh</StyledAnchor>
+        </h4>
+        <a href='https://github.com/Dekann30/Books-Mart-Frontend'>
+          <StyledImage src='https://i.imgur.com/hVB3Qs5.png' alt='github logo'></StyledImage>
+        </a>
+      </div>
+    </StyledFooter>
   )
 }

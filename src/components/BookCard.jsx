@@ -12,6 +12,10 @@ const StyledCard = styled.div`
   text-align: center;
   justify-content: space-around;
   flex-direction: column;
+`
+
+const ShowDiv = styled.div`
+
   width: 100%;
   height: 100vh;
   word-wrap: break-word;
@@ -97,7 +101,7 @@ export default function BookCard({ idx, author, title, description, genre, price
   console.log(pathname.length)
   console.log(isBook())
 
-  const showPage = () => {
+  const otherPage = () => {
     return <StyledCard >
       <div onClick={handleClick}>
         <h1>{title}</h1>
@@ -112,15 +116,18 @@ export default function BookCard({ idx, author, title, description, genre, price
     </StyledCard>
   }
 
-  const otherPage = () => {
-    return <div onClick={handleClick}>
-      {author}
-      {title}
-      {description}
-      {genre}
-      {price}
-    </div>
+  const showPage = () => {
+    return <ShowDiv onClick={handleClick}>
+      <h1 className="item-detail" id="title">{title}</h1>
+      <div className="details-container">
+      <div className="item-detail" id="author"><p>{author}</p></div>
+      <div className="item-detail" id="genre"><p>{genre}</p></div>
+      <div className="item-detail" id="description"><p>{description}</p></div>
+      <div className="item-detail" id="price"><p>${price}</p></div>
+      </div>
+    </ShowDiv>
   }
 
-  return isBook() ? showPage(): otherPage()
+
+  return isBook() ?  otherPage() : showPage()
 }
