@@ -14,16 +14,16 @@ const StyledFooter = styled.footer`
 
 const StyledImage = styled.img`
   width: 100px;
-  height: 50px
+  height: 50px;
 `
 
 const StyledAnchor = styled.a`
-a { text-decoration: none; }
-a:visited { text-decoration: none; }
-a:hover { text-decoration: none; }
-a:focus { text-decoration: none; }
-a:hover, a:active { text-decoration: none; }
-color: white;
+  a { text-decoration: none; }
+  a:visited { text-decoration: none; }
+  a:hover { text-decoration: none; }
+  a:focus { text-decoration: none; }
+  a:hover, a:active { text-decoration: none; }
+  color: white;
 `
 
 export default function Footer({ woodBg }) {
