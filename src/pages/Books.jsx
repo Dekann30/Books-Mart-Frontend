@@ -4,8 +4,8 @@ import styled from 'styled-components'
 const StyledDiv = styled.div`
   background-image: url(${props => props.bg});
   background-size: cover;
-  border: 5px solid burlywood;
   display: flex;
+  background-repeat: repeat;
   align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;

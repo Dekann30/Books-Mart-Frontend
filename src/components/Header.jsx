@@ -2,10 +2,12 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 const StyledHeader = styled.header`
-  h1 {
-    margin: 0px;
-    padding: 30px;
+  a {
+    text-decoration: none;
+    color: white;
+    margin: 20px;
   }
+
   nav {
     display: flex;
     a {
@@ -32,7 +34,7 @@ export default function Header({ woodBg }) {
 
   return (
     <StyledHeader bg={woodBg} >
-      <h1>Book Mart</h1>
+      <Link to="/" ><h1>Book Mart</h1></Link>
       <nav>
         <Link to="/" ><h2>HOME</h2></Link>
         <Link to="/books" ><h2>BOOKS</h2></Link>

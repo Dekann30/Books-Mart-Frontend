@@ -5,9 +5,6 @@ const StyledFooter = styled.footer`
   color: white;
   background-image: url(${props => props.bg});
   text-align: center;
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
 `
 
