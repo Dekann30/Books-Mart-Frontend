@@ -9,7 +9,6 @@ const StyledDiv = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
-  min-height: 100%;
 `
 
 export default function Books({ getBooks, books, setShowBook, deleteBook, booksBg}) {
