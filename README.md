@@ -4,6 +4,8 @@ This App May be used for adding your favorite books to your book club reading li
 
 [Click Here](https://books-mart.netlify.app/) to see the deployed app!
 [Miro Board](https://miro.com/app/board/uXjVOvAprYo=/)
+[Frontend Github Repo](https://github.com/Dekann30/Books-Mart-Frontend)
+[Backend Github Repo](https://github.com/Dekann30/Books-Mart-Backend)
 
 
 ## User Stories
