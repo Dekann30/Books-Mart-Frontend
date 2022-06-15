@@ -8,7 +8,7 @@ import blankBookBg from '../images/blankBookBg.png'
 const StyledForm = styled.form`
   background: #664e44;
   background-image: url(${blankBookBg}), url(${woodBg});
-  background-size: 103%;
+  background-size: cover;
   background-position: top center;
   height: 85vh;
   display: flex;
