@@ -6,13 +6,29 @@ const ShowDiv = styled.div `
   color: white;
   display: flex;
   flex-direction: column;
+`
+
+const ShowDiv = styled.div`
+
   width: 100%;
   height: 100vh;
   word-wrap: break-word;
 
-
-    .details-container {
+  .details-container {
     background-color: #FCFFE7;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 33% 33% 33%;
+    word-wrap: break-word;
+    grid-column-gap: 0px;
+    grid-row-gap: 10px;
+  }
+
+  .item-detail {
+    padding: 5px;
+    text-align: center;
+    background-color: #FCFFE7;
+
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 33% 33% 33%;
@@ -42,11 +58,11 @@ const ShowDiv = styled.div `
       margin-top: 15px;
     }
     h1 {
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1rem;
-    line-height: 1.25;
-    margin: 30px;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 1rem;
+      line-height: 1.25;
+      margin: 30px;
     }
     #description {
       grid-column: 1 / 4;
@@ -61,12 +77,43 @@ const ShowDiv = styled.div `
     #price {
 
     }
+    
+    border-radius: 15%;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  p {
+    font-size: 20px;
+    color: #DEA057;
+  }
+
+  #title {
+    color: #CE9461;
+    font-size: 6rem;
+    margin-bottom: 40px;
+    margin-top: 15px;
+  }
+
+  h1 {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.25;
+  margin: 30px;
+  }
+
+  #description {
+    grid-column: 1 / 4;
+    grid-row: 1;
+  }
 `
 
 
-export default function BookCard({ idx, author, title, description, genre, price, setShowBook, book, deleteBook}) {
+export default function BookCard({ idx, author, title, description, genre, price, setShowBook, book, deleteBook }) {
 
-  let navigate= useNavigate()
+  let navigate = useNavigate()
 
   const handleClick = () => {
     setShowBook(book)
@@ -93,17 +140,19 @@ export default function BookCard({ idx, author, title, description, genre, price
   console.log(isBook())
 
   const allBooks = () => {
-    return <div >
+    return <StyledCard >
       <div onClick={handleClick}>
-        {author}
-        {title}
-        {description}
-        {genre}
-        {price}
-        </div>
-      <button onClick={handleUpdate} >update</button>
-      <button onClick={handleDelete} >delete</button>
-    </div>
+        <h1>{title}</h1>
+        <h2>{author}</h2>
+        <h2>{genre}</h2>
+        <h2>{price}</h2>
+      </div>
+      <ButtonContainer>
+        <button onClick={handleUpdate} >update</button>
+        <button onClick={handleDelete} >delete</button>
+      </ButtonContainer>
+    </StyledCard>
+
   }
 
   const showPage = () => {
@@ -117,6 +166,7 @@ export default function BookCard({ idx, author, title, description, genre, price
       </div>
     </ShowDiv>
   }
+
 
   return isBook() ? allBooks(): showPage()
 }
