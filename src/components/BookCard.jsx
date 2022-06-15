@@ -2,17 +2,28 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledCard = styled.div`
-  background: RGBA(30, 16, 4, 0.5);
+  background: rgba(137, 96, 68, 0.9);
   border-radius: 20%;
+  border: 3px solid black;
   margin: 10px;
   padding: 25px;
-  width: 200px;
-  height: 150px;
+  width: 300px;
+  height: auto;
   display: flex;
   text-align: center;
   justify-content: space-around;
   flex-direction: column;
-`;
+  flex-wrap: wrap;
+  .book-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    h1, h2 {
+      word-break: break-all;
+      flex-wrap: wrap;
+    }
+  }
+`
 
 const ShowDiv = styled.div`
   background-color: #E0D8B0;
@@ -32,7 +43,6 @@ const ShowDiv = styled.div`
     grid-column-gap: 0px;
     grid-row-gap: 10px;
   }
-
   .item-detail {
     padding: 5px;
     text-align: center;
@@ -41,7 +51,6 @@ const ShowDiv = styled.div`
     align-items: center;
     justify-content: center;
   }
-
   p {
     font-size: 20px;
     color: #dea057;
@@ -52,7 +61,6 @@ const ShowDiv = styled.div`
     margin-bottom: 40px;
     margin-top: 15px;
   }
-
   h1 {
     font-weight: 400;
     font-style: normal;
@@ -64,13 +72,14 @@ const ShowDiv = styled.div`
     grid-column: 1 / 4;
     grid-row: 1;
   }
-`;
+`
+
 const ButtonContainer = styled.div`
   display: flex;
   button {
     width: 50%;
   }
-`;
+`
 
 export default function BookCard({
   idx,
@@ -112,7 +121,7 @@ export default function BookCard({
   const allBooks = () => {
     return (
       <StyledCard>
-        <div onClick={handleClick}>
+        <div className="book-container" onClick={handleClick}>
           <h1>{title}</h1>
           <h2>{author}</h2>
           <h2>{genre}</h2>
