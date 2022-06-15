@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const StyledDiv = styled.div`
   background-image: url(${props => props.bg});
-  background-position: center;
+  background-size: cover;
   border: 5px solid burlywood;
   display: flex;
   align-items: flex-start;
