@@ -8,7 +8,9 @@ import ShowBook from './pages/ShowBook'
 import BookForm from './pages/BookForm'
 import woodBg from '../src/images/woodBg.jpg'
 import bookShelfBg from '../src/images/bookShelfBg.jpg'
+import booksBg from '../src/images/booksBg.jpg'
 import './styles.sass'
+import blankBookBg from '../src/images/blankBookBg.png'
 
 export default function App() {
 
@@ -63,12 +65,13 @@ export default function App() {
         <Route path='/' element={<Home bookShelfBg={bookShelfBg}/>} />
         <Route 
           path='/books/' 
-          element={<Books 
-              books={books} 
-              getBooks={getBooks}
-              setShowBook={setShowBook}
-              deleteBook={deleteBook}
-              updateBook={updateBook}
+          element={<Books
+            booksBg={booksBg}
+            books={books} 
+            getBooks={getBooks}
+            setShowBook={setShowBook}
+            deleteBook={deleteBook}
+            updateBook={updateBook}
             />} 
         />
         <Route 
@@ -85,6 +88,8 @@ export default function App() {
           element={<BookForm 
             createBook={createBook}
             showBook={showBook}
+            woodBg={woodBg}
+            blankBookBg={blankBookBg}
           />} 
         />
         <Route 
